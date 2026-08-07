@@ -440,7 +440,7 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
             </div>
 
             <div className="overflow-x-auto border border-slate-200 rounded-xl bg-white shadow-2xs">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
                     <th className="p-3.5">Camp Location</th>

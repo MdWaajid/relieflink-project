@@ -13,13 +13,14 @@
 @layer base {
   html, body {
     overflow-x: clip; /* Hallmark Gate 34: Hard page edge clipping */
+    font-size: 15px; /* High legibility base font size */
   }
 
   body {
     font-family: var(--font-body);
     background-color: #f8fafc;
     color: #0f172a;
-    line-height: 1.55;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -27,7 +28,7 @@
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.15;
+    line-height: 1.2;
   }
 
   code, pre, .font-mono {
@@ -43,11 +44,21 @@
     outline: 2px solid #4f46e5 !important;
     outline-offset: 1px !important;
   }
+
+  /* Font legibility overrides for small text classes */
+  .text-\[9px\], .text-\[10px\] {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+  .text-\[11px\] {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
 }
 
 /* Glassmorphism Utilities */
 .glass-card {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(226, 232, 240, 0.8);
