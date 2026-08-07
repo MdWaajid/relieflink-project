@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { Truck, MapPin, Clock, Navigation, CheckCircle2, ShieldAlert, Sparkles, X } from 'lucide-react';
+
+function MapResizeController() {
+  const map = useMap();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [map]);
+  return null;
+}
 
 const createCustomIcon = (color, text) => {
   return L.divIcon({
@@ -133,7 +145,7 @@ export default function SupplyRouteModal({ request, ngo, camp, onClose }) {
         </div>
 
         {/* Map Body */}
-        <div className="relative flex-1 min-h-[360px] bg-slate-100">
+        <div className="relative w-full h-[400px] min-h-[380px] bg-slate-100">
           
           {/* AI Banner Badge */}
           <div className="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200 text-xs shadow-md space-y-0.5">
@@ -148,8 +160,10 @@ export default function SupplyRouteModal({ request, ngo, camp, onClose }) {
             center={[(ngoLat + campLat) / 2, (ngoLng + campLng) / 2]}
             zoom={12}
             scrollWheelZoom={true}
+            style={{ height: '100%', width: '100%' }}
             className="w-full h-full"
           >
+            <MapResizeController />
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"

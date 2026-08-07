@@ -4,7 +4,6 @@ import GoogleDisasterMap from './GoogleDisasterMap';
 import AnalyticsCharts from './AnalyticsCharts';
 import RequestTimeline from './RequestTimeline';
 import SupplyRouteModal from './SupplyRouteModal';
-import DisasterTelemetryBar from './DisasterTelemetryBar';
 import { api } from '../api';
 
 export default function AdminDashboard({ currentUser, searchQuery = '', searchSector = 'all' }) {
@@ -319,17 +318,8 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
 
       </div>
 
-      {/* Operational Telemetry Grid */}
-      <div className="max-w-6xl mx-auto px-4">
-        <DisasterTelemetryBar
-          totalServed={camps.reduce((acc, c) => acc + (c.current_population || 0), 0) || 1450}
-          totalCapacity={camps.reduce((acc, c) => acc + (c.capacity || 0), 0) || 2000}
-          activeDispatches={requests.filter(r => ['Dispatched', 'Accepted', 'Matched'].includes(r.status)).length}
-        />
-      </div>
-
       {/* Main Grid Content */}
-      <div className="max-w-6xl mx-auto px-4 py-2 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
         
         {/* Navigation Tabs Header & Re-registration controls */}
         <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -904,8 +894,8 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
       {selectedReqForRouteModal && (
         <SupplyRouteModal
           request={selectedReqForRouteModal}
-          camp={camps.find(c => c.id === selectedReqForRouteModal.camp_id)}
-          ngo={ngos.find(n => n.id === selectedReqForRouteModal.matched_ngo_id)}
+          camp={camps.find(c => c.id === selectedReqForRouteModal.camp_id) || camps[0]}
+          ngo={ngos.find(n => n.id === selectedReqForRouteModal.matched_ngo_id) || ngos[0]}
           onClose={() => setSelectedReqForRouteModal(null)}
         />
       )}
