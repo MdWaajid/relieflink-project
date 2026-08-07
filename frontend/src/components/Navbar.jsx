@@ -45,15 +45,20 @@ export default function Navbar({
       <div className="bg-white border-b border-slate-200 py-4 px-6 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-4">
         
         {/* Brand Section */}
-        <div className="flex items-center space-x-3 shrink-0">
-          <div className="w-11 h-11 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-red-600 shrink-0 shadow-xs">
-            <Shield className="w-6 h-6" />
-          </div>
+        <div className="flex items-center space-x-3.5 shrink-0">
+          <img
+            src="/relieflink-logo.png"
+            alt="ReliefLink Seal Logo"
+            className="w-12 h-12 object-contain rounded-full border border-slate-200 shadow-sm"
+          />
           <div>
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-extrabold tracking-tight text-slate-900">ReliefLink</span>
-              <span className="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded-md uppercase">
+              <span className="text-xl font-extrabold tracking-tight text-[#0B2545]">ReliefLink</span>
+              <span className="text-xs font-extrabold text-[#F58220] bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-md uppercase">
                 Official Portal
+              </span>
+              <span className="text-xs font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md uppercase hidden sm:inline">
+                Government Verified
               </span>
             </div>
             <span className="text-xs font-semibold text-slate-500 block">

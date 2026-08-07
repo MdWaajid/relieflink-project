@@ -202,25 +202,35 @@ export default function CampDashboard({ currentUser, onRefreshNeeded, searchQuer
   return (
     <div className="space-y-6">
       
-      {/* 1. Deep Navy Hero Banner (India.gov.in style) */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-8 md:p-12 relative overflow-hidden rounded-b-3xl shadow-md border-b-4 border-red-600">
+      {/* 1. Deep Navy Seal Hero Banner */}
+      <div className="bg-gradient-to-r from-[#0B2545] via-[#13293D] to-[#0B2545] text-white p-8 md:p-12 relative overflow-hidden rounded-b-3xl shadow-md border-l-4 border-l-[#F58220] border-r-4 border-r-[#059669] border-b-4 border-b-[#0B2545]">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         
-        <div className="relative z-10 max-w-4xl space-y-3">
-          <span className="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
-            Emergency Command Unit
-          </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-            Relief Camp Operational Demands Control
-          </h2>
-          <p className="text-slate-300 text-xs md:text-sm font-medium leading-relaxed max-w-2xl">
-            This module registers urgent resource needs at the ground level and streams live allocation logs with government-vetted NGO logistics partners.
-          </p>
-          
-          <div className="flex items-center gap-2 pt-2 text-[11px] font-bold text-slate-400">
-            <MapPin className="w-3.5 h-3.5 text-red-500" />
-            <span>Active Sector:</span>
-            <span className="text-white uppercase">{selectedCamp?.name || 'Central Flood Zone'}</span>
+        <div className="relative z-10 max-w-5xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-3xl">
+            <span className="bg-[#F58220] text-white text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
+              Emergency Ground Unit
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+              Relief Camp Operational Demands Control
+            </h2>
+            <p className="text-slate-200 text-xs md:text-sm font-medium leading-relaxed">
+              This module registers urgent resource needs at the ground level and streams live allocation logs with government-vetted NGO logistics partners.
+            </p>
+            
+            <div className="flex items-center gap-2 pt-1 text-xs font-bold text-slate-300">
+              <MapPin className="w-4 h-4 text-[#F58220]" />
+              <span>Active Sector:</span>
+              <span className="text-white uppercase font-extrabold">{selectedCamp?.name || 'Central Flood Zone'}</span>
+            </div>
+          </div>
+
+          <div className="shrink-0 hidden md:block">
+            <img
+              src="/relieflink-logo.png"
+              alt="ReliefLink Seal Logo"
+              className="w-32 h-32 object-contain rounded-full border-4 border-white/20 shadow-xl"
+            />
           </div>
         </div>
       </div>

@@ -51,14 +51,15 @@ export default function AuthModal({ onLoginSuccess }) {
         
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-600/10 border border-indigo-200 flex items-center justify-center mx-auto text-indigo-600">
-            <Shield className="w-6 h-6" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 pt-1 flex items-center justify-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-indigo-600 inline-block" />
-            Relief<span className="text-indigo-600">Link</span>
+          <img
+            src="/relieflink-logo.png"
+            alt="ReliefLink Seal Logo"
+            className="w-20 h-20 object-contain rounded-full border-2 border-slate-200 shadow-md mx-auto"
+          />
+          <h1 className="text-2xl font-black tracking-tight text-[#0B2545] pt-1 flex items-center justify-center gap-1.5">
+            Relief<span className="text-[#F58220]">Link</span>
           </h1>
-          <p className="text-xs font-medium text-slate-500">National Disaster Relief Resource Coordination Platform</p>
+          <p className="text-xs font-semibold text-slate-500">Connecting Resources. Saving Lives.</p>
         </div>
 
         {/* Security Policy Notice */}

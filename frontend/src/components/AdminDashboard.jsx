@@ -258,25 +258,40 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
   return (
     <div className="space-y-6">
       
-      {/* 1. Deep Navy Hero Banner (India.gov.in style) */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-8 md:p-12 relative overflow-hidden rounded-b-3xl shadow-md border-b-4 border-red-600">
+      {/* 1. Deep Navy Seal Hero Banner */}
+      <div className="bg-gradient-to-r from-[#0B2545] via-[#13293D] to-[#0B2545] text-white p-8 md:p-12 relative overflow-hidden rounded-b-3xl shadow-md border-l-4 border-l-[#F58220] border-r-4 border-r-[#059669] border-b-4 border-b-[#0B2545]">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         
-        <div className="relative z-10 max-w-4xl space-y-3">
-          <span className="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
-            Apex Command Center
-          </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-            Disaster Management Authority Control Dashboard
-          </h2>
-          <p className="text-slate-300 text-xs md:text-sm font-medium leading-relaxed max-w-2xl">
-            District Officers review resource demand logs, perform administrative priority overrides, manually reassign NGO logistics lines, and track geo-location dispatches.
-          </p>
-          
-          <div className="flex items-center gap-2 pt-2 text-[11px] font-bold text-slate-400">
-            <Shield className="w-3.5 h-3.5 text-red-500" />
-            <span>Operational Authority:</span>
-            <span className="text-white uppercase">State Disaster Response Force</span>
+        <div className="relative z-10 max-w-5xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-3xl">
+            <div className="flex items-center gap-2">
+              <span className="bg-[#F58220] text-white text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
+                Apex Command Center
+              </span>
+              <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-sm tracking-widest uppercase">
+                Government Verified
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+              Disaster Management Authority Control Dashboard
+            </h2>
+            <p className="text-slate-200 text-xs md:text-sm font-medium leading-relaxed">
+              District Officers review resource demand logs, perform administrative priority overrides, manually reassign NGO logistics lines, and track geo-location dispatches.
+            </p>
+            
+            <div className="flex items-center gap-2 pt-1 text-xs font-bold text-slate-300">
+              <Shield className="w-4 h-4 text-[#F58220]" />
+              <span>Operational Authority:</span>
+              <span className="text-white uppercase font-extrabold">State Disaster Response Force</span>
+            </div>
+          </div>
+
+          <div className="shrink-0 hidden md:block">
+            <img
+              src="/relieflink-logo.png"
+              alt="ReliefLink Seal Logo"
+              className="w-32 h-32 object-contain rounded-full border-4 border-white/20 shadow-xl"
+            />
           </div>
         </div>
       </div>
