@@ -4,16 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: 'JetBrains Mono', ui-monospace, monospace;
+}
+
 @layer base {
   html, body {
     overflow-x: clip; /* Hallmark Gate 34: Hard page edge clipping */
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
     background-color: #f8fafc;
     color: #0f172a;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-outlier);
   }
 
   /* Hallmark Gate 39: Input State Discipline & Focus Rings */
