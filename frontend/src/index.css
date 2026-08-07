@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: rgba(248, 250, 252, 0.5);
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 1rem;
+}
+
+.glass-hero {
+  background: linear-gradient(135deg, rgba(238, 242, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(248, 250, 252, 0.8) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(224, 231, 255, 0.8);
+  border-radius: 1.5rem;
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@layer utilities {
+  /* GPU-accelerated Pop effect (No text padding or DOM shift) */
+  .hover-pop {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    will-change: transform;
+  }
+  .hover-pop:hover {
+    transform: scale(1.025);
+  }
+  .hover-pop:active {
+    transform: scale(0.985);
+  }
+
+  /* Soft Lavender Ambient Glow */
+  .glow-lavender {
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .glow-lavender:hover {
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.18), 0 8px 10px -6px rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+
+  /* Action Glow for Interactive Buttons */
+  .glow-primary {
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .glow-primary:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.45);
+  }
+}
