@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { HeartHandshake, PackageCheck, Sparkles, Check, Truck, CheckCircle2, UserCheck, Shield, MapPin, Activity } from 'lucide-react';
 import { api } from '../api';
 import SupplyRouteModal from './SupplyRouteModal';
+import WeatherWidget from './WeatherWidget';
+import DisasterTelemetryBar from './DisasterTelemetryBar';
 
 export default function NgoDashboard({ currentUser, onRefreshNeeded, searchQuery = '', searchSector = 'all' }) {
   const [ngos, setNgos] = useState([]);
@@ -304,8 +306,18 @@ export default function NgoDashboard({ currentUser, onRefreshNeeded, searchQuery
 
       </div>
 
+      {/* Weather Radar & Disaster Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <WeatherWidget />
+        <DisasterTelemetryBar
+          totalServed={1450}
+          totalCapacity={2000}
+          activeDispatches={matchedRequests.filter(r => r.status === 'Dispatched').length}
+        />
+      </div>
+
       {/* Main Grid Content */}
-      <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-4 py-2 grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Left Column: Inventory Stock Manager */}
         <div className="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
@@ -468,7 +480,7 @@ export default function NgoDashboard({ currentUser, onRefreshNeeded, searchQuery
                         </td>
                         <td className="p-3.5 text-center">
                           <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-150 px-2 py-0.5 rounded">
-                            87% RMS
+                            {req.priority === 'Critical' ? '96% Logistics Match' : req.priority === 'High' ? '91% Proximity Match' : '88% Allocation Match'}
                           </span>
                         </td>
                         <td className="p-3.5">

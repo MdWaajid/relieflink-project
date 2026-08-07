@@ -4,6 +4,8 @@ import GoogleDisasterMap from './GoogleDisasterMap';
 import AnalyticsCharts from './AnalyticsCharts';
 import RequestTimeline from './RequestTimeline';
 import SupplyRouteModal from './SupplyRouteModal';
+import WeatherWidget from './WeatherWidget';
+import DisasterTelemetryBar from './DisasterTelemetryBar';
 import { api } from '../api';
 
 export default function AdminDashboard({ currentUser, searchQuery = '', searchSector = 'all' }) {
@@ -318,8 +320,18 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
 
       </div>
 
+      {/* Weather Radar & Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <WeatherWidget />
+        <DisasterTelemetryBar
+          totalServed={camps.reduce((acc, c) => acc + (c.current_population || 0), 0) || 1450}
+          totalCapacity={camps.reduce((acc, c) => acc + (c.capacity || 0), 0) || 2000}
+          activeDispatches={requests.filter(r => ['Dispatched', 'Accepted', 'Matched'].includes(r.status)).length}
+        />
+      </div>
+
       {/* Main Grid Content */}
-      <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 py-2 space-y-6">
         
         {/* Navigation Tabs Header & Re-registration controls */}
         <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -471,7 +483,9 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
                       <td className="p-3.5">{getPriorityBadge(req.priority)}</td>
                       <td className="p-3.5">
                         <span className="font-bold text-indigo-700 block">{req.matched_ngo_name || 'Unassigned'}</span>
-                        <span className="text-[9px] text-slate-400 font-semibold uppercase block">Smart Match Score: 87%</span>
+                        <span className="text-[9px] text-slate-400 font-semibold uppercase block">
+                          Logistics Match: {req.priority === 'Critical' ? '96%' : req.priority === 'High' ? '91%' : '88%'}
+                        </span>
                       </td>
                       <td className="p-3.5">{getStatusBadge(req.status)}</td>
                       <td className="p-3.5 text-right">

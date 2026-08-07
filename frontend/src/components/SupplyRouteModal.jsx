@@ -92,7 +92,7 @@ export default function SupplyRouteModal({ request, ngo, camp, onClose }) {
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-extrabold tracking-tight">Live Supply Transport Route</h3>
                 <span className="bg-cyan-500/20 text-cyan-300 text-[10px] font-bold px-2 py-0.5 rounded border border-cyan-500/30 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-cyan-400" /> Google Maps AI Optimized
+                  <Navigation className="w-3 h-3 text-cyan-400" /> Emergency Transit Corridor
                 </span>
               </div>
               <p className="text-xs text-slate-300 font-medium">
@@ -139,9 +139,9 @@ export default function SupplyRouteModal({ request, ngo, camp, onClose }) {
           <div className="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200 text-xs shadow-md space-y-0.5">
             <div className="flex items-center space-x-1.5 font-bold text-slate-900">
               <span className="w-2 h-2 rounded-full bg-cyan-500 animate-ping" />
-              <span>Google Maps Traffic & AI Risk Avoidance Active</span>
+              <span>Real-time Traffic & Flood Hazard Avoidance</span>
             </div>
-            <p className="text-[10px] text-slate-500">Route dynamically avoids flood zones & road blockages</p>
+            <p className="text-[10px] text-slate-500">Dynamically routes around active flood zones & road blockages</p>
           </div>
 
           <MapContainer

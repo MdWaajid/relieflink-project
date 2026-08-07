@@ -24,7 +24,7 @@ export default function NotificationCenter({ isOpen, onClose, notifications, onM
           <div className="flex items-center space-x-2">
             <h3 className="text-base font-bold text-slate-900">Live Notification Feed</h3>
             <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100">
-              Realtime Feed
+              District Command Alerts
             </span>
           </div>
           <div className="flex items-center space-x-2">

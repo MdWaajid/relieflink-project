@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Tent, PlusCircle, AlertCircle, Clock, CheckCircle2, Truck, Sparkles, FileText, Users, MapPin, Layers } from 'lucide-react';
 import { api } from '../api';
 import SupplyRouteModal from './SupplyRouteModal';
+import WeatherWidget from './WeatherWidget';
+import DisasterTelemetryBar from './DisasterTelemetryBar';
 
 export default function CampDashboard({ currentUser, onRefreshNeeded, searchQuery = '', searchSector = 'all' }) {
   const [camps, setCamps] = useState([]);
@@ -287,8 +289,18 @@ export default function CampDashboard({ currentUser, onRefreshNeeded, searchQuer
 
       </div>
 
+      {/* Weather & Disaster Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <WeatherWidget />
+        <DisasterTelemetryBar
+          totalServed={selectedCamp?.current_population || 150}
+          totalCapacity={selectedCamp?.capacity || 500}
+          activeDispatches={campRequests.filter(r => ['Dispatched', 'Accepted', 'Matched'].includes(r.status)).length}
+        />
+      </div>
+
       {/* Main Grid Content */}
-      <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-4 py-2 grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Left Column: Create Resource Request Form */}
         <div className="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
