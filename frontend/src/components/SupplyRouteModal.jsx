@@ -29,9 +29,9 @@ const createCustomIcon = (color, text) => {
   });
 };
 
-const ngoIcon = createCustomIcon('#4f46e5', '🏢');
-const campIcon = createCustomIcon('#dc2626', '🏕️');
-const truckIcon = createCustomIcon('#0891b2', '🚚');
+const ngoIcon = createCustomIcon('#4f46e5', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>');
+const campIcon = createCustomIcon('#dc2626', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21V11L12 3 5 11v10"/><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/></svg>');
+const truckIcon = createCustomIcon('#0891b2', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>');
 
 export default function SupplyRouteModal({ request, ngo, camp, onClose }) {
   const [progress, setProgress] = useState(0.4); // 40% along route

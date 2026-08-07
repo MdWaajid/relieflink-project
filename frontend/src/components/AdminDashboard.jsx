@@ -4,7 +4,6 @@ import GoogleDisasterMap from './GoogleDisasterMap';
 import AnalyticsCharts from './AnalyticsCharts';
 import RequestTimeline from './RequestTimeline';
 import SupplyRouteModal from './SupplyRouteModal';
-import WeatherWidget from './WeatherWidget';
 import DisasterTelemetryBar from './DisasterTelemetryBar';
 import { api } from '../api';
 
@@ -320,9 +319,8 @@ export default function AdminDashboard({ currentUser, searchQuery = '', searchSe
 
       </div>
 
-      {/* Weather Radar & Operational Telemetry Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <WeatherWidget />
+      {/* Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4">
         <DisasterTelemetryBar
           totalServed={camps.reduce((acc, c) => acc + (c.current_population || 0), 0) || 1450}
           totalCapacity={camps.reduce((acc, c) => acc + (c.capacity || 0), 0) || 2000}

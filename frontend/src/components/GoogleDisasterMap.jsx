@@ -29,9 +29,9 @@ const createCustomIcon = (color, text) => {
   });
 };
 
-const campIconCritical = createCustomIcon('#f43f5e', '🏕️');
-const campIconNormal = createCustomIcon('#f59e0b', '🏕️');
-const ngoIcon = createCustomIcon('#6366f1', '🤝');
+const campIconCritical = createCustomIcon('#f43f5e', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21V11L12 3 5 11v10"/><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/></svg>');
+const campIconNormal = createCustomIcon('#f59e0b', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21V11L12 3 5 11v10"/><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/></svg>');
+const ngoIcon = createCustomIcon('#4f46e5', '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>');
 
 export default function GoogleDisasterMap({ camps = [], ngos = [], requests = [] }) {
   const centerLat = camps.length > 0 ? camps[0].latitude : 13.0827;
@@ -60,14 +60,16 @@ export default function GoogleDisasterMap({ camps = [], ngos = [], requests = []
     <div className="relative w-full h-[520px] rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden min-h-[380px] bg-slate-100">
       
       {/* Light Glass Overlay Banner */}
-      <div className="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/80 flex items-center space-x-3 text-xs shadow-sm text-slate-900">
+      <div className="absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/80 flex items-center space-x-3 text-xs shadow-sm text-slate-900">
         <div className="flex items-center space-x-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 animate-ping" />
           <span className="font-bold text-slate-900">Live Disaster Region Map</span>
         </div>
         <span className="text-slate-300">|</span>
-        <span className="font-medium text-slate-600">
-          🏕️ {camps.length} Camps · 🤝 {ngos.length} NGOs · 🚚 {activeRoutes.length} Active Routes
+        <span className="font-medium text-slate-600 flex items-center gap-3">
+          <span><strong>{camps.length}</strong> Relief Camps</span>
+          <span><strong>{ngos.length}</strong> NGO Depots</span>
+          <span><strong>{activeRoutes.length}</strong> Transport Routes</span>
         </span>
       </div>
 

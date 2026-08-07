@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Tent, PlusCircle, AlertCircle, Clock, CheckCircle2, Truck, Sparkles, FileText, Users, MapPin, Layers } from 'lucide-react';
 import { api } from '../api';
 import SupplyRouteModal from './SupplyRouteModal';
-import WeatherWidget from './WeatherWidget';
 import DisasterTelemetryBar from './DisasterTelemetryBar';
 
 export default function CampDashboard({ currentUser, onRefreshNeeded, searchQuery = '', searchSector = 'all' }) {
@@ -289,9 +288,8 @@ export default function CampDashboard({ currentUser, onRefreshNeeded, searchQuer
 
       </div>
 
-      {/* Weather & Disaster Operational Telemetry Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <WeatherWidget />
+      {/* Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4">
         <DisasterTelemetryBar
           totalServed={selectedCamp?.current_population || 150}
           totalCapacity={selectedCamp?.capacity || 500}

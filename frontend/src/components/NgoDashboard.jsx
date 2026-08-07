@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { HeartHandshake, PackageCheck, Sparkles, Check, Truck, CheckCircle2, UserCheck, Shield, MapPin, Activity } from 'lucide-react';
 import { api } from '../api';
 import SupplyRouteModal from './SupplyRouteModal';
-import WeatherWidget from './WeatherWidget';
 import DisasterTelemetryBar from './DisasterTelemetryBar';
 
 export default function NgoDashboard({ currentUser, onRefreshNeeded, searchQuery = '', searchSector = 'all' }) {
@@ -306,9 +305,8 @@ export default function NgoDashboard({ currentUser, onRefreshNeeded, searchQuery
 
       </div>
 
-      {/* Weather Radar & Disaster Operational Telemetry Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <WeatherWidget />
+      {/* Disaster Operational Telemetry Grid */}
+      <div className="max-w-6xl mx-auto px-4">
         <DisasterTelemetryBar
           totalServed={1450}
           totalCapacity={2000}
